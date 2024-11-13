@@ -26,4 +26,7 @@ class MenuViewController: UIViewController {
         friendsLabel.font = .architects(size: 24)
     }
 
+    @IBAction func clickedCalendar(_ sender: UIButton) {
+        self.pushViewController(CalendarViewController.self)
+    }
 }

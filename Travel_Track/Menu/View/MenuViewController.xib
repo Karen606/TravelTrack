@@ -249,7 +249,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxU-Ba-dmf">
                                     <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="104"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tdi-zI-vCs">
+                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tdi-zI-vCs">
                                             <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="100"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="vmv-uj-VSx">
@@ -282,13 +282,25 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67x-Ul-5ur">
+                                            <rect key="frame" x="0.0" y="0.0" width="162" height="104"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain"/>
+                                            <connections>
+                                                <action selector="clickedCalendar:" destination="-1" eventType="touchUpInside" id="qgM-Au-9rb"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Tdi-zI-vCs" secondAttribute="trailing" id="5Vs-cO-hGr"/>
                                         <constraint firstItem="Tdi-zI-vCs" firstAttribute="top" secondItem="IxU-Ba-dmf" secondAttribute="top" id="D11-nb-d1l"/>
+                                        <constraint firstAttribute="trailing" secondItem="67x-Ul-5ur" secondAttribute="trailing" constant="-0.33333333333334281" id="OFg-FF-B3x"/>
+                                        <constraint firstItem="67x-Ul-5ur" firstAttribute="top" secondItem="IxU-Ba-dmf" secondAttribute="top" id="XNP-xe-a2G"/>
                                         <constraint firstAttribute="bottom" secondItem="Tdi-zI-vCs" secondAttribute="bottom" constant="4" id="itT-8i-tUW"/>
                                         <constraint firstItem="Tdi-zI-vCs" firstAttribute="leading" secondItem="IxU-Ba-dmf" secondAttribute="leading" id="kMW-Rd-bjF"/>
+                                        <constraint firstItem="67x-Ul-5ur" firstAttribute="leading" secondItem="IxU-Ba-dmf" secondAttribute="leading" id="qPB-zB-8Vo"/>
+                                        <constraint firstAttribute="bottom" secondItem="67x-Ul-5ur" secondAttribute="bottom" id="soa-gl-G5q"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

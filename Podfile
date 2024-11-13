@@ -8,6 +8,7 @@ target 'Travel_Track' do
   # Pods for Travel_Track
   pod 'FirebaseAnalytics'
   pod 'Firebase/RemoteConfig'
+  pod 'FSCalendar'
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
