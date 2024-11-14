@@ -171,4 +171,76 @@ class CoreDataManager {
             }
         }
     }
+    
+    func removeFriendTravel(withId id: UUID, completion: @escaping (Error?) -> Void) {
+        let backgroundContext = persistentContainer.newBackgroundContext()
+        backgroundContext.perform {
+            let fetchRequest: NSFetchRequest<FriendTravel> = FriendTravel.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+            
+            do {
+                let results = try backgroundContext.fetch(fetchRequest)
+                if let travelToRemove = results.first {
+                    backgroundContext.delete(travelToRemove)
+                    try backgroundContext.save()
+                    DispatchQueue.main.async {
+                        completion(nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        completion(NSError(domain: "CoreDataManager",
+                                           code: 404,
+                                           userInfo: [NSLocalizedDescriptionKey: "Travel not found"]))
+                    }
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(error)
+                }
+            }
+        }
+    }
+    
+    func addFriendTravelToMyTravels(friendTravelId: UUID, completion: @escaping (Error?) -> Void) {
+        let backgroundContext = persistentContainer.newBackgroundContext()
+        backgroundContext.perform {
+            let fetchRequest: NSFetchRequest<FriendTravel> = FriendTravel.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "id == %@", friendTravelId as CVarArg)
+            do {
+                guard let friendTravel = try backgroundContext.fetch(fetchRequest).first else {
+                    DispatchQueue.main.async {
+                        completion(NSError(domain: "CoreDataManager",
+                                           code: 404,
+                                           userInfo: [NSLocalizedDescriptionKey: "FriendTravel not found"]))
+                    }
+                    return
+                }
+                let myTravelFetchRequest: NSFetchRequest<MyTravel> = MyTravel.fetchRequest()
+                myTravelFetchRequest.predicate = NSPredicate(format: "id == %@", friendTravelId as CVarArg)
+                let myTravel: MyTravel
+                if let existingMyTravel = try backgroundContext.fetch(myTravelFetchRequest).first {
+                    myTravel = existingMyTravel
+                } else {
+                    myTravel = MyTravel(context: backgroundContext)
+                    myTravel.id = friendTravel.id
+                }
+                myTravel.name = friendTravel.name
+                myTravel.country = friendTravel.country
+                myTravel.city = friendTravel.city
+                myTravel.startDate = friendTravel.startDate
+                myTravel.endDate = friendTravel.endDate
+                myTravel.feedBack = friendTravel.feedBack
+                myTravel.assessment = friendTravel.assessment                
+                try backgroundContext.save()
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(error)
+                }
+            }
+        }
+    }
+
 }

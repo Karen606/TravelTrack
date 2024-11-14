@@ -51,7 +51,9 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func clickedFriendsPlaces(_ sender: UIButton) {
+        self.pushViewController(FriendsTravelsViewController.self)
     }
+    
     @IBAction func clickedSettings(_ sender: UIButton) {
     }
 }
