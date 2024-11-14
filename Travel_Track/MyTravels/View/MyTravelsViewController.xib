@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyTravelsViewController" customModule="Travel_Track" customModuleProvider="target">
+            <connections>
+                <outlet property="searchTextField" destination="tDz-84-j5W" id="bRx-SA-0xc"/>
+                <outlet property="travelsTableView" destination="cJz-ma-fbP" id="yNm-X7-QBW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tDz-84-j5W">
+                    <rect key="frame" x="28" y="75" width="337" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="m7N-CP-pJc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-ma-fbP">
+                    <rect key="frame" x="0.0" y="147" width="393" height="671"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="baseWhite"/>
+            <constraints>
+                <constraint firstItem="tDz-84-j5W" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="28" id="55b-5c-oQZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cJz-ma-fbP" secondAttribute="trailing" id="5qh-Ey-qE0"/>
+                <constraint firstItem="cJz-ma-fbP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="GDp-Ds-hbA"/>
+                <constraint firstItem="tDz-84-j5W" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="aHZ-2T-mDZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tDz-84-j5W" secondAttribute="trailing" constant="28" id="acs-rF-XWU"/>
+                <constraint firstItem="cJz-ma-fbP" firstAttribute="top" secondItem="tDz-84-j5W" secondAttribute="bottom" constant="24" id="h2k-Gw-gxf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cJz-ma-fbP" secondAttribute="bottom" id="zRg-gW-Kz1"/>
+            </constraints>
+            <point key="canvasLocation" x="136.64122137404578" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="baseWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

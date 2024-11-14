@@ -327,6 +327,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dl6-IO-co3">
+                                                    <rect key="frame" x="-1" y="-2" width="162" height="102"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="clickedMyPlaces:" destination="-1" eventType="touchUpInside" id="oz6-c0-7Zs"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" name="baseBlue"/>
                                             <constraints>
@@ -335,8 +343,12 @@
                                                 <constraint firstItem="QPL-TS-XLz" firstAttribute="centerX" secondItem="dP9-09-rNy" secondAttribute="centerX" id="9w0-ad-x9q"/>
                                                 <constraint firstAttribute="bottom" secondItem="FWd-pu-WVg" secondAttribute="bottom" constant="5" id="JUW-oM-0bG"/>
                                                 <constraint firstAttribute="trailing" secondItem="FWd-pu-WVg" secondAttribute="trailing" constant="8" id="UrE-QU-ePA"/>
+                                                <constraint firstAttribute="trailing" secondItem="dl6-IO-co3" secondAttribute="trailing" constant="0.33333333333334281" id="Vq6-PW-DnC"/>
+                                                <constraint firstItem="dl6-IO-co3" firstAttribute="top" secondItem="dP9-09-rNy" secondAttribute="top" constant="-2" id="Xj6-8o-1ss"/>
                                                 <constraint firstItem="QPL-TS-XLz" firstAttribute="top" secondItem="dP9-09-rNy" secondAttribute="top" id="cxO-jB-FnK"/>
                                                 <constraint firstAttribute="height" constant="100" id="f7d-2P-1Fk"/>
+                                                <constraint firstItem="dl6-IO-co3" firstAttribute="leading" secondItem="dP9-09-rNy" secondAttribute="leading" constant="-1" id="haB-9e-hRL"/>
+                                                <constraint firstAttribute="bottom" secondItem="dl6-IO-co3" secondAttribute="bottom" id="rL6-jq-qMK"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -382,15 +394,27 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tpq-Ae-ffX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="100"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="clickedFriendsPlaces:" destination="-1" eventType="touchUpInside" id="EKG-GN-Zph"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" name="baseBlue"/>
                                             <constraints>
                                                 <constraint firstItem="hBf-dw-Wya" firstAttribute="top" secondItem="Fm2-iA-IJZ" secondAttribute="top" constant="6" id="13O-fL-kd1"/>
+                                                <constraint firstAttribute="bottom" secondItem="Tpq-Ae-ffX" secondAttribute="bottom" id="6zG-k9-Jyi"/>
+                                                <constraint firstAttribute="trailing" secondItem="Tpq-Ae-ffX" secondAttribute="trailing" id="HRH-N1-YLw"/>
                                                 <constraint firstAttribute="bottom" secondItem="ZGo-Ff-Ege" secondAttribute="bottom" constant="5" id="IkJ-Xw-naM"/>
+                                                <constraint firstItem="Tpq-Ae-ffX" firstAttribute="leading" secondItem="Fm2-iA-IJZ" secondAttribute="leading" id="R82-Fs-VMW"/>
                                                 <constraint firstItem="ZGo-Ff-Ege" firstAttribute="leading" secondItem="Fm2-iA-IJZ" secondAttribute="leading" constant="8" id="S6A-Ag-f7t"/>
                                                 <constraint firstItem="ZGo-Ff-Ege" firstAttribute="top" secondItem="hBf-dw-Wya" secondAttribute="bottom" constant="5" id="aOz-Sh-sFW"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZGo-Ff-Ege" secondAttribute="trailing" constant="8" id="h7F-pg-Egf"/>
                                                 <constraint firstItem="hBf-dw-Wya" firstAttribute="centerX" secondItem="Fm2-iA-IJZ" secondAttribute="centerX" id="knK-Gr-gOs"/>
+                                                <constraint firstItem="Tpq-Ae-ffX" firstAttribute="top" secondItem="Fm2-iA-IJZ" secondAttribute="top" id="lva-X4-ryu"/>
                                                 <constraint firstAttribute="height" constant="100" id="p5U-YS-ypn"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
@@ -419,29 +443,41 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Unt-xW-qZl">
                                             <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="100"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedback" translatesAutoresizingMaskIntoConstraints="NO" id="d83-no-4iC">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="d83-no-4iC">
                                                     <rect key="frame" x="51.000000000000028" y="14" width="59" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="52" id="4qD-Zv-hwU"/>
                                                         <constraint firstAttribute="width" constant="59" id="THr-en-Y40"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedback" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uml-Ix-GOp">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uml-Ix-GOp">
                                                     <rect key="frame" x="8" y="65.999999999999943" width="145.33333333333334" height="29"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0p-QD-GM8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="162" height="100"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="clickedSettings:" destination="-1" eventType="touchUpInside" id="tF4-PF-zDL"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" name="baseBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="2aJ-xX-ACp"/>
+                                                <constraint firstItem="z0p-QD-GM8" firstAttribute="top" secondItem="Unt-xW-qZl" secondAttribute="top" id="4s9-R5-G9J"/>
                                                 <constraint firstAttribute="bottom" secondItem="uml-Ix-GOp" secondAttribute="bottom" constant="5" id="705-uC-9fs"/>
+                                                <constraint firstItem="z0p-QD-GM8" firstAttribute="leading" secondItem="Unt-xW-qZl" secondAttribute="leading" id="8Kf-e8-RX8"/>
                                                 <constraint firstItem="uml-Ix-GOp" firstAttribute="leading" secondItem="Unt-xW-qZl" secondAttribute="leading" constant="8" id="EbY-3d-kQi"/>
                                                 <constraint firstItem="uml-Ix-GOp" firstAttribute="top" secondItem="d83-no-4iC" secondAttribute="bottom" id="ICB-A0-leB"/>
                                                 <constraint firstItem="d83-no-4iC" firstAttribute="top" secondItem="Unt-xW-qZl" secondAttribute="top" constant="14" id="ODp-9S-BYI"/>
                                                 <constraint firstAttribute="trailing" secondItem="uml-Ix-GOp" secondAttribute="trailing" constant="8" id="TUl-LE-eVY"/>
+                                                <constraint firstAttribute="bottom" secondItem="z0p-QD-GM8" secondAttribute="bottom" id="UC8-b2-bJu"/>
                                                 <constraint firstItem="d83-no-4iC" firstAttribute="centerX" secondItem="Unt-xW-qZl" secondAttribute="centerX" id="cnd-zt-DVd"/>
+                                                <constraint firstAttribute="trailing" secondItem="z0p-QD-GM8" secondAttribute="trailing" constant="-0.66666666666665719" id="dWC-sp-L32"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -497,8 +533,8 @@
     <resources>
         <image name="airplane" width="74" height="74"/>
         <image name="calendar" width="59" height="59"/>
-        <image name="feedback" width="59" height="52"/>
         <image name="friends" width="56" height="56"/>
+        <image name="info" width="56" height="56"/>
         <image name="menuImage" width="402" height="226"/>
         <image name="places" width="78" height="78"/>
         <image name="rounded" width="16" height="16"/>

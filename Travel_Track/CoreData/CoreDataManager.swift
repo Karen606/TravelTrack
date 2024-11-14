@@ -142,4 +142,33 @@ class CoreDataManager {
             }
         }
     }
+    
+    func removeMyTravel(withId id: UUID, completion: @escaping (Error?) -> Void) {
+        let backgroundContext = persistentContainer.newBackgroundContext()
+        backgroundContext.perform {
+            let fetchRequest: NSFetchRequest<MyTravel> = MyTravel.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+            
+            do {
+                let results = try backgroundContext.fetch(fetchRequest)
+                if let travelToRemove = results.first {
+                    backgroundContext.delete(travelToRemove)
+                    try backgroundContext.save()
+                    DispatchQueue.main.async {
+                        completion(nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        completion(NSError(domain: "CoreDataManager",
+                                           code: 404,
+                                           userInfo: [NSLocalizedDescriptionKey: "Travel not found"]))
+                    }
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(error)
+                }
+            }
+        }
+    }
 }

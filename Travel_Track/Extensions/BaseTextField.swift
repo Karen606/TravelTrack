@@ -61,12 +61,14 @@ extension BaseTextField {
         rightViewMode = .always
         self.padding.right = size.width
     }
-    
-    func setupLeftViewIcon(_ image: UIImage) {
-        let icon = UIImageView(frame:CGRect(x: 0, y: 0, width: 26, height: 26))
+}
+
+extension UITextField {
+    func setupLeftViewIcon(_ image: UIImage, size: CGSize) {
+        let icon = UIImageView(frame:CGRect(x: 0, y: 0, width: size.width, height: size.height))
         icon.image = image
         icon.contentMode = .center
-        let iconContainerView: UIView = UIView(frame:CGRect(x: 0, y: 0, width: 26, height: 26))
+        let iconContainerView: UIView = UIView(frame:CGRect(x: 0, y: 0, width: size.width, height: size.height))
         iconContainerView.isUserInteractionEnabled = false
         iconContainerView.addSubview(icon)
         leftView = iconContainerView

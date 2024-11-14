@@ -45,4 +45,13 @@ class MenuViewController: UIViewController {
     @IBAction func clickedCalendar(_ sender: UIButton) {
         self.pushViewController(CalendarViewController.self)
     }
+    
+    @IBAction func clickedMyPlaces(_ sender: UIButton) {
+        self.pushViewController(MyTravelsViewController.self)
+    }
+    
+    @IBAction func clickedFriendsPlaces(_ sender: UIButton) {
+    }
+    @IBAction func clickedSettings(_ sender: UIButton) {
+    }
 }
