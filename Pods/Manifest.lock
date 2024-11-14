@@ -100,12 +100,14 @@ PODS:
   - nanopb/decode (3.30910.0)
   - nanopb/encode (3.30910.0)
   - PromisesObjC (2.4.0)
+  - TTSwitch (0.0.6)
 
 DEPENDENCIES:
   - DropDown
   - Firebase/RemoteConfig
   - FirebaseAnalytics
   - FSCalendar
+  - TTSwitch (~> 0.0.5)
 
 SPEC REPOS:
   trunk:
@@ -124,6 +126,7 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
     - PromisesObjC
+    - TTSwitch
 
 SPEC CHECKSUMS:
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
@@ -141,7 +144,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 26a3abef001b6533cf678d3eb38fd3f614b7872d
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
+  TTSwitch: fef67a32dbd75e6981a3d27a7e954728e537de50
 
-PODFILE CHECKSUM: b1cbdd65ddd4372698993a322bb6e1148ec54eaf
+PODFILE CHECKSUM: 9efff9e45f2d12ba7e38c95ac68f2717cb49ab77
 
 COCOAPODS: 1.16.2

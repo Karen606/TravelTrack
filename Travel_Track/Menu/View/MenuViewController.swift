@@ -55,5 +55,6 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func clickedSettings(_ sender: UIButton) {
+        self.pushViewController(SettingsViewController.self)
     }
 }

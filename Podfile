@@ -10,6 +10,7 @@ target 'Travel_Track' do
   pod 'Firebase/RemoteConfig'
   pod 'FSCalendar'
   pod 'DropDown'
+  pod 'TTSwitch', '~> 0.0.5'
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
