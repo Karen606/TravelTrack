@@ -13,17 +13,29 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var countriesLabel: UILabel!
     @IBOutlet weak var citiesLabel: UILabel!
     @IBOutlet weak var friendsLabel: UILabel!
+    private let viewModel = MenuViewModel.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController?.navigationItem.hidesBackButton = true
-//        self.navigationController?.navigationItem.setHidesBackButton(true, animated:true)
-
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.fetchMyTravels { [weak self] travels, _ in
+            guard let self = self else { return }
+            let uniqueCountries = Set(travels.compactMap { $0.country?.lowercased() })
+            let uniqueCities = Set(travels.compactMap { $0.city?.lowercased() })
+            self.countriesLabel.text = "\(uniqueCountries.count)"
+            self.citiesLabel.text = "\(uniqueCities.count)"
+        }
+        
+        viewModel.fetchFriendTravels { [weak self] travels, _ in
+            guard let self = self else { return }
+            self.friendsLabel.text = "\(travels.count)"
+        }
+    }
+    
     func setupUI() {
-//        navigationController?.navigationBar.isHidden = false
         titleLabels.forEach({ $0.font = .architects(size: 15)})
         countriesLabel.font = .architects(size: 24)
         citiesLabel.font = .architects(size: 24)

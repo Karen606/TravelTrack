@@ -97,24 +97,49 @@ class CoreDataManager {
         }
     }
     
-//    func fetchParties(completion: @escaping ([PartyModel], Error?) -> Void) {
-//        let backgroundContext = persistentContainer.newBackgroundContext()
-//        backgroundContext.perform {
-//            let fetchRequest: NSFetchRequest<Party> = Party.fetchRequest()
-//
-//            do {
-//                let results = try backgroundContext.fetch(fetchRequest)
-//                var partyModels: [PartyModel] = []
-//                for result in results {
-//                    let partyModel = PartyModel(id: result.id, name: result.name, location: result.location, theme: result.theme, date: result.date)
-//                    partyModels.append(partyModel)
-//                }
-//                completion(partyModels, nil)
-//            } catch {
-//                DispatchQueue.main.async {
-//                    completion([], error)
-//                }
-//            }
-//        }
-//    }
+    func fetchMyTravels(completion: @escaping ([TravelModel], Error?) -> Void) {
+        let backgroundContext = persistentContainer.newBackgroundContext()
+        backgroundContext.perform {
+            let fetchRequest: NSFetchRequest<MyTravel> = MyTravel.fetchRequest()
+
+            do {
+                let results = try backgroundContext.fetch(fetchRequest)
+                var travelsModel: [TravelModel] = []
+                for result in results {
+                    let travelModel = TravelModel(id: result.id, name: result.name, country: result.country, city: result.city, startDate: result.startDate, endDate: result.endDate, friends: false, feedBack: result.feedBack, assessment: Int(result.assessment))
+                    travelsModel.append(travelModel)
+                }
+                DispatchQueue.main.async {
+                    completion(travelsModel, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion([], error)
+                }
+            }
+        }
+    }
+    
+    func fetchFriendTravels(completion: @escaping ([TravelModel], Error?) -> Void) {
+        let backgroundContext = persistentContainer.newBackgroundContext()
+        backgroundContext.perform {
+            let fetchRequest: NSFetchRequest<FriendTravel> = FriendTravel.fetchRequest()
+
+            do {
+                let results = try backgroundContext.fetch(fetchRequest)
+                var travelsModel: [TravelModel] = []
+                for result in results {
+                    let travelModel = TravelModel(id: result.id, name: result.name, country: result.country, city: result.city, startDate: result.startDate, endDate: result.endDate, friends: true, feedBack: result.feedBack, assessment: Int(result.assessment))
+                    travelsModel.append(travelModel)
+                }
+                DispatchQueue.main.async {
+                    completion(travelsModel, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion([], error)
+                }
+            }
+        }
+    }
 }
