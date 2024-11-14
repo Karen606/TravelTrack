@@ -16,10 +16,14 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        navigationController?.navigationItem.hidesBackButton = true
+//        self.navigationController?.navigationItem.setHidesBackButton(true, animated:true)
+
         setupUI()
     }
     
     func setupUI() {
+//        navigationController?.navigationBar.isHidden = false
         titleLabels.forEach({ $0.font = .architects(size: 15)})
         countriesLabel.font = .architects(size: 24)
         citiesLabel.font = .architects(size: 24)

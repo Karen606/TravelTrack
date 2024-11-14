@@ -8,12 +8,44 @@
 import UIKit
 
 extension UIViewController {
+    
+    func setNavigationBar(title: String) {
+        let titleLabel = UILabel()
+        titleLabel.text = title
+        titleLabel.textColor = .baseText
+        titleLabel.font = .architects(size: 28)
+        titleLabel.textAlignment = .center
+        titleLabel.sizeToFit()
+        navigationItem.titleView = titleLabel
+    }
+    
+    func setNaviagtionBackButton() {
+        let backButton = UIButton(type: .custom)
+        backButton.setTitleColor(.baseRed, for: .normal)
+        backButton.setTitle("Cancel", for: .normal)
+        backButton.addTarget(self, action: #selector(clickedBack), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+    }
+    
+    func setNaviagtionMenuButton() {
+        let menuButton = UIButton(type: .custom)
+        menuButton.setImage(.menu, for: .normal)
+        menuButton.addTarget(self, action: #selector(clickedMenu), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: menuButton)
+    }
+    
     @objc func clickedBack() {
         navigationController?.popViewController(animated: true)
     }
     
     @objc func handleTap() {
         self.view.endEditing(true)
+    }
+    
+    @objc func clickedMenu() {
+        if let menuVC = navigationController?.viewControllers.first(where: { $0 is MenuViewController }) {
+            self.navigationController?.popToViewController(menuVC, animated: true)
+        }
     }
     
     func pushViewController<T: UIViewController>(_ viewControllerType: T.Type, animated: Bool = true) {
